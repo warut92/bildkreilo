@@ -39,21 +39,29 @@
       ctx.lineWidth = 2;
       ctx.fillStyle = "black";
 
-      // ctx.clearRect(0, 0, canvas.width, canvas.height);
-      // ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
+
       ctx.strokeText(txt.value, 200, 500);
       ctx.fillText(txt.value, 200, 500);
+      ctxMeaning.font = "50px monospace";
+      ctxMeaning.fillText(txtSub.value, 200, 600);
     }
 
     textMeaning.oninput = () => {
       ctxMeaning.font = "50px monospace";
-      ctxMeaning.strokeStyle = "black";
-      ctxMeaning.lineWidth = 0;
       ctxMeaning.fillStyle = "black";
 
-      // ctxMeaning.clearRect(200, 600, canvas.width, canvas.height);
-      // ctxMeaning.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
+      ctxMeaning.clearRect(200, 600, canvas.width, canvas.height);
+      ctxMeaning.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
       ctxMeaning.fillText(txtSub.value, 200, 600);
+
+      ctx.font = "100px Sarabun";
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 2;
+      ctx.fillStyle = "black";
+      ctx.strokeText(txt.value, 200, 500);
+      ctx.fillText(txt.value, 200, 500);
     }
 
     img.src = "demo.png";
