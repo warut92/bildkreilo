@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <input type="text" name="" value="" id="textTitle" oninput=""><br>
+    <input type="text" name="" value="" id="textMeaning" oninput=""><br>
+
+    <canvas id="demo"></canvas>
+    
+    <script>
+    var textTitle = document.getElementById('textTitle');
+    var textMeaning = document.getElementById('textMeaning');
+
+    var img = new Image(),
+        txt = textTitle,
+        txtSub = textMeaning,
+        canvas = document.getElementById("demo"),
+        ctx = canvas.getContext("2d");
+        ctxMeaning = canvas.getContext("2d");
+
+    img.onload = () => {
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
+    };
+    textTitle.oninput = () => {
+      ctx.font = "100px Sarabun";
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 2;
+      ctx.fillStyle = "black";
+
+      // ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
+      ctx.strokeText(txt.value, 200, 500);
+      ctx.fillText(txt.value, 200, 500);
+    }
+
+    textMeaning.oninput = () => {
+      ctxMeaning.font = "50px monospace";
+      ctxMeaning.strokeStyle = "black";
+      ctxMeaning.lineWidth = 0;
+      ctxMeaning.fillStyle = "black";
+
+      // ctxMeaning.clearRect(200, 600, canvas.width, canvas.height);
+      // ctxMeaning.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
+      ctxMeaning.fillText(txtSub.value, 200, 600);
+    }
+
+    img.src = "demo.png";
+    </script>
+  </body>
+</html>
